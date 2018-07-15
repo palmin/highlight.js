@@ -169,7 +169,7 @@ function(hljs) {
           ]
         },
         {
-          className: 'function', 
+          className: 'objc-method', 
           begin: '[-+]\\s*', end: '\\s*[{;]', 
           excludeEnd: true, excludeBegin: true,
           contains: [
