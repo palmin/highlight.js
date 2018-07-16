@@ -109,9 +109,35 @@ function(hljs) {
       begin: '{',
       end: '}',
       contains: [
-      API_CLASS, hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE, hljs.C_NUMBER_MODE, hljs.QUOTE_STRING_MODE, STRING, 'self']
+      API_CLASS, 
+      hljs.C_LINE_COMMENT_MODE, 
+      hljs.C_BLOCK_COMMENT_MODE, 
+      hljs.C_NUMBER_MODE, 
+      hljs.QUOTE_STRING_MODE, 
+      STRING, 
+      'self']
     },
-    API_CLASS, hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE, hljs.C_NUMBER_MODE, hljs.QUOTE_STRING_MODE, STRING,
+    API_CLASS, 
+    hljs.C_LINE_COMMENT_MODE, 
+    hljs.C_BLOCK_COMMENT_MODE, 
+    hljs.C_NUMBER_MODE, 
+    hljs.QUOTE_STRING_MODE, 
+    STRING,
+    { // objective-c property
+      className: 'property',
+      begin: '@property', returnBegin: true, 
+      end: ';', returnEnd: true,
+      keywords: OBJC_KEYWORDS,
+      contains: [
+        // we detect title followed by semicolon but then need to do sub-detection to get title without semicolon
+        { begin: OBJC_IDENTIFIER + '\\s*;',
+          returnBegin: true,
+          contains: [{
+            begin: OBJC_IDENTIFIER,
+            className: 'title'}
+        ]}
+      ]
+    },
     {
       className: 'meta',
       begin: '#',
@@ -161,7 +187,26 @@ function(hljs) {
         // return type
         begin: OBJC_TYPE
       }]
-    }, {
+    }, 
+    {
+      begin: 'typedef', end: ';', returnEnd: true,
+      keywords: OBJC_KEYWORDS,
+      contains: [
+        // pointer and block typedefs have symbol in parenthesis
+        { begin: '\\s\\([*^]',excludeBegin: true, 
+          end: '\\)', excludeEnd: true, 
+          className: 'title'},
+                      
+        // regular typedefs have no ending parenthesis and symbol before semicolon
+        { begin: OBJC_IDENTIFIER + '\\s*;',
+          returnBegin: true,
+          contains: [{
+            begin: OBJC_IDENTIFIER,
+            className: 'title'}
+        ]}
+      ]
+    },
+    {
       className: 'function',
       begin: '(' + hljs.IDENT_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
       returnBegin: true,
