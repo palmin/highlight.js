@@ -107,7 +107,6 @@ function(hljs) {
   ];
 
   return {
-    aliases: ['c', 'cc', 'h', 'c++', 'h++', 'hpp', 'hh', 'hxx', 'cxx'],
     keywords: CPP_KEYWORDS,
     // the base c-like language will NEVER be auto-detected, rather the
     // derivitives: c, c++, arduino turn auto-detect back on for themselves
