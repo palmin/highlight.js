@@ -65,6 +65,23 @@ function(hljs) {
           }
         ]
       },
+      // Fenced code blocks:
+      //  https://github.github.com/gfm/#fenced-code-blocks
+      // {	    
+      //     subLanguage: ['js', 'xml', 'swift', 'cpp', 'objectivec', 'perl',
+      // 			'php', 'csharp', 'makefile', 'css', 'markdown', 'bash',
+      // 			'python', 'ruby', 'sql'],
+      // 	  excludeBegin: true, excludeEnd: true,
+      // 	  variants: [{begin: '^~~~+\w*\s*$', end: '^~~~+\s*$'},
+      // 		     {begin: '^```+\w*\s*$', end: '^```+\s*$'},
+      // 		     {begin: '^( {4}|\t)', end: '$', relevance: 0}
+      // 		    ]
+      // },
+      // // inline code snippets
+      // {
+      //   className: 'code',
+      //   begin: '`.+?`'
+      // },
       // horizontal rules
       {
         begin: '^[-\\*]{3,}', end: '$'
