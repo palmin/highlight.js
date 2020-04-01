@@ -1,0 +1,16 @@
+* section
+** subsection
+
+you can write text [[http://example.com][with links]]
+
+- one /thing/ has /em/phasis
+- two *things* are *bold*
+- two +things+ are +deleted+
+- two _things_ are _underlined_
+
+* section 2
+
+because org-mode is cool
+
+1. one thing (yeah!)
+2. two thing ~i can write code~, and =more= wipee!
