@@ -6,12 +6,10 @@ __pycache__
 node_modules
 .project
 yarn.lock
-extra/
 
 # play stuff
 quick*
 test*.*
-extra*
 
 # editors
 .idea/
