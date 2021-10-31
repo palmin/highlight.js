@@ -8,7 +8,7 @@ Category: common, markup
 
 export default function(hljs) {
   const regex = hljs.regex;
-  const comment = {
+  const COMMENT = {
     begin: '<!--',
     end: '-->',
     className: 'comment'
@@ -227,6 +227,7 @@ export default function(hljs) {
     ],
     contains: [
       HEADER,
+      COMMENT,
       INLINE_HTML,
       LIST,
       BOLD,
