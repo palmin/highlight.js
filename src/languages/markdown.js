@@ -8,6 +8,11 @@ Category: common, markup
 
 export default function(hljs) {
   const regex = hljs.regex;
+  const comment = {
+    begin: '<!--',
+    end: '-->',
+    className: 'comment'
+  };
   const INLINE_HTML = {
     begin: /<\/?[A-Za-z_]/,
     end: '>',
