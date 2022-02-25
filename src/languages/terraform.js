@@ -13,9 +13,7 @@
  * Category: scripting
  */
 
-var module = module ? module : {};     // shim for browser use
-
-function hljsDefineTerraform(hljs) {
+export default function(hljs) {
 	var NUMBERS = {
 		className: 'number',
 		begin: '\\b\\d+(\\.\\d+)?',
@@ -80,8 +78,3 @@ return {
 }
 }
 
-module.exports = function(hljs) {
-    hljs.registerLanguage('terraform', hljsDefineTerraform);
-};
-
-module.exports.definer = hljsDefineTerraform;

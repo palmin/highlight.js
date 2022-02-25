@@ -4,9 +4,7 @@ Author: Khairul Hidayat <me@khairul.my.id>, Nelson Sylvest*r Fritsch <info@nelso
 Description: Programming language for Godot Engine
 */
 
-var module = module ? module : {};     // shim for browser use
-
-function hljsDefineGDScript(hljs) {
+export default function(hljs) {
 	var KEYWORDS = {
 		keyword:
 			'and in not or self void as assert breakpoint class class_name ' +
@@ -68,9 +66,3 @@ function hljsDefineGDScript(hljs) {
 		]
 	};
 }
-
-module.exports = function(hljs) {
-    hljs.registerLanguage('gdscript', hljsDefineGDScript);
-};
-
-module.exports.definer = hljsDefineGDScript;
