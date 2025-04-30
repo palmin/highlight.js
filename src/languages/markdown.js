@@ -145,11 +145,11 @@ export default function(hljs) {
     contains: [], // defined later
     variants: [
       {
-        begin: /_{2}/,
+        begin: /_{2}(?!\s)(?=.*?__[\n$])/,
         end: /_{2}/
       },
       {
-        begin: /\*{2}/,
+        begin: /\*{2}(?!\s)(?=.*?\*\*[\n$])/,
         end: /\*{2}/
       }
     ]
@@ -159,11 +159,11 @@ export default function(hljs) {
     contains: [], // defined later
     variants: [
       {
-        begin: /\*(?!\*)/,
+        begin: /\*(?![*\s])(?=.*?\*[\n$])/,
         end: /\*/
       },
       {
-        begin: /_(?!_)/,
+        begin: /_(?![\s_])(?=.*?_[\n$])/,
         end: /_/,
         relevance: 0
       }
