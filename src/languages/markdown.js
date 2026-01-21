@@ -189,12 +189,19 @@ export default function(hljs) {
       {
         begin: '^#{1,6}',
         end: '$',
-        contains: CONTAINABLE
+        returnBegin: true,
+        contains: [
+          {
+            scope: 'header-marker',
+            begin: /^#{1,6}/
+          }
+        ].concat(CONTAINABLE)
       },
       {
         begin: '(?=^.+?\\n[=-]{2,}$)',
         contains: [
           {
+            scope: 'header-marker',
             begin: '^[=-]*$'
           },
           {
