@@ -8,6 +8,7 @@ Category: common, markup
 
 export default function(hljs) {
   const regex = hljs.regex;
+  const COMMENT = hljs.COMMENT('<!--', '-->', { relevance: 10 });
   const INLINE_HTML = {
     begin: /<\/?[A-Za-z_]/,
     end: '>',
@@ -222,6 +223,7 @@ export default function(hljs) {
     ],
     contains: [
       HEADER,
+      COMMENT,
       INLINE_HTML,
       LIST,
       BOLD,
